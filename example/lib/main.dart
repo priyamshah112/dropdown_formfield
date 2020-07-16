@@ -68,6 +68,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   titleText: 'My workout',
                   hintText: 'Please choose one',
+                  hintStyle: TextStyle(
+                    color: Colors.blue
+                  ),
                   value: _myActivity,
                   onSaved: (value) {
                     setState(() {

@@ -16,6 +16,7 @@ class DropDownFormField extends FormField<dynamic> {
   final EdgeInsets contentPadding;
   final Color backgroundColor;
   final Icon icon;
+  final TextStyle hintStyle;
 
   DropDownFormField(
       {FormFieldSetter<dynamic> onSaved,
@@ -23,6 +24,7 @@ class DropDownFormField extends FormField<dynamic> {
       bool autovalidate = false,
       this.titleText = 'Title',
       this.hintText = 'Select one option',
+      this.hintStyle = const TextStyle(color: Colors.grey),
       this.required = false,
       this.errorText = 'Please select one option',
       this.value,
@@ -65,7 +67,7 @@ class DropDownFormField extends FormField<dynamic> {
                       child: DropdownButton<dynamic>(
                         hint: Text(
                           hintText,
-                          style: TextStyle(color: Colors.grey.shade500),
+                          style: hintStyle,
                         ),
                         value: value == '' ? null : value,
                         onChanged: (dynamic newValue) {
