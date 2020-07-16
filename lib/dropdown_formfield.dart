@@ -55,7 +55,7 @@ class DropDownFormField extends FormField<dynamic> {
                     decoration: InputDecoration(
                       labelText: titleText,
                       filled: filled,
-                      fillColor: Color(0xffffaf4ff),
+                      fillColor: backgroundColor,
                       labelStyle: TextStyle(color: backgroundColor, fontSize: 10.0),
                       errorStyle: TextStyle(color: Colors.red[600], fontSize: 12.0),
                       enabledBorder: UnderlineInputBorder(
