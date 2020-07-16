@@ -18,6 +18,7 @@ A dropdown form field using a dropdown button inside a form field.
 - Follows the app theme and colors.
 - backgroundColor field for User choice color.
 - Icon field for UI enhancement.
+- hintStyle field for hint text enhancement.
 
 ## Example
 
