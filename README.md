@@ -6,7 +6,7 @@ A dropdown form field using a dropdown button inside a form field.
 
 ## Demo
 
-<img src="https://github.com/cetorres/dropdown_formfield/raw/master/screenshot.gif" width="300" />
+<img src="https://github.com/priyamshah112/dropdown_formfield/blob/master/screenshot.gif" width="300" />
 
 ## Features
 
@@ -16,10 +16,13 @@ A dropdown form field using a dropdown button inside a form field.
 - Provides validation of data.
 - Provides requirement of the field.
 - Follows the app theme and colors.
+- backgroundColor field for User choice color.
+- Icon field for UI enhancement.
 
 ## Example
 
 ```dart
+import 'package:flutter/material.dart';
 import 'package:dropdown_formfield/dropdown_formfield.dart';
 
 void main() => runApp(MyApp());
@@ -51,12 +54,19 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   _saveForm() {
-    var form = formKey.currentState;
-    if (form.validate()) {
-      form.save();
-      setState(() {
-        _myActivityResult = _myActivity;
-      });
+    try {
+      print(_myActivity);
+      var form = formKey.currentState;
+      if (form.validate()) {
+        form.save();
+        setState(() {
+          _myActivityResult = _myActivity;
+        });
+      }
+    }
+    catch(e){
+      print(e);
+      _myActivityResult = "";
     }
   }
 
@@ -75,6 +85,11 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 padding: EdgeInsets.all(16),
                 child: DropDownFormField(
+                  backgroundColor:Color(0xffffaf4ff),
+                  icon: Icon(
+                    Icons.question_answer,
+                    color: Color(0xFF03A9F4),
+                  ),
                   titleText: 'My workout',
                   hintText: 'Please choose one',
                   value: _myActivity,
@@ -140,6 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
 ```
 
 ## License
