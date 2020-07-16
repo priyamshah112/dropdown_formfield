@@ -14,6 +14,8 @@ class DropDownFormField extends FormField<dynamic> {
   final Function onChanged;
   final bool filled;
   final EdgeInsets contentPadding;
+  final Color backgroundColor;
+  final Icon icon;
 
   DropDownFormField(
       {FormFieldSetter<dynamic> onSaved,
@@ -29,7 +31,14 @@ class DropDownFormField extends FormField<dynamic> {
       this.valueField,
       this.onChanged,
       this.filled = true,
-      this.contentPadding = const EdgeInsets.fromLTRB(12, 12, 8, 0)})
+      this.icon,
+      this.backgroundColor,
+      this.contentPadding = const EdgeInsets.only(
+          left: 10.0,
+          bottom: 5.0,
+          top: 0.0,
+          right: 10.0)
+      })
       : super(
           onSaved: onSaved,
           validator: validator,
@@ -42,9 +51,15 @@ class DropDownFormField extends FormField<dynamic> {
                 children: <Widget>[
                   InputDecorator(
                     decoration: InputDecoration(
-                      contentPadding: contentPadding,
                       labelText: titleText,
                       filled: filled,
+                      fillColor: Color(0xffffaf4ff),
+                      labelStyle: TextStyle(color: backgroundColor, fontSize: 10.0),
+                      errorStyle: TextStyle(color: Colors.red[600], fontSize: 12.0),
+                      enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white)),
+                      contentPadding: contentPadding,
+                      prefixIcon: icon,
                     ),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton<dynamic>(

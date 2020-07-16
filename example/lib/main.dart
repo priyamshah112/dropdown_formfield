@@ -30,12 +30,19 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   _saveForm() {
-    var form = formKey.currentState;
-    if (form.validate()) {
-      form.save();
-      setState(() {
-        _myActivityResult = _myActivity;
-      });
+    try {
+      print(_myActivity);
+      var form = formKey.currentState;
+      if (form.validate()) {
+        form.save();
+        setState(() {
+          _myActivityResult = _myActivity;
+        });
+      }
+    }
+    catch(e){
+      print(e);
+      _myActivityResult = "";
     }
   }
 
@@ -54,6 +61,11 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 padding: EdgeInsets.all(16),
                 child: DropDownFormField(
+                  backgroundColor:Color(0xffffaf4ff),
+                  icon: Icon(
+                    Icons.question_answer,
+                    color: Color(0xFF03A9F4),
+                  ),
                   titleText: 'My workout',
                   hintText: 'Please choose one',
                   value: _myActivity,
